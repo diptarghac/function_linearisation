@@ -1,5 +1,6 @@
 import math
 
+import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -54,7 +55,7 @@ def evaluate_function(f, x):
         y.append(f(val))
     return y
 
-def plot_function(data):
+def plot_function(data, independent_variable):
 
     """
     Plots the output of a function over a range of input values.
@@ -69,7 +70,7 @@ def plot_function(data):
     """
     with sns.color_palette("hls", 8):
         for y in data:
-            sns.lineplot(x=range(len(y)), y=y)
+            sns.lineplot(x=independent_variable, y=y)
 
     plt.xlabel("Input Value")
     plt.ylabel("Function Value")
@@ -79,9 +80,10 @@ def plot_function(data):
 
 
 if __name__ == "__main__":
+    independent_variable = np.linspace(1.5, 3, 10)
     f_nonlinear, f_linear = function1()
-    y_nonlinear = evaluate_function(f_nonlinear, range(10))
-    y_linear = evaluate_function(f_linear, range(10))
-    plot_function([y_nonlinear, y_linear])
+    y_nonlinear = evaluate_function(f_nonlinear, independent_variable)
+    y_linear = evaluate_function(f_linear, independent_variable)
+    plot_function([y_nonlinear, y_linear], independent_variable)
     pass
 

@@ -1,5 +1,7 @@
-numpy
+numpy~=2.1.2
 pandas
-scipy
-seaborn
-matplotlib
+scipy~=1.14.1
+seaborn~=0.13.2
+matplotlib~=3.9.2
+
+sympy~=1.13.3
